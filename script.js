@@ -2,14 +2,16 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-let number = getRandomInt(2);
-console.log(number);
+let number = getRandomInt(3);
 
 function getComputerChoice(number){
-    if (number=0) return "rock";
-    if (number=1) return "paper";
-    if (number=2) return "scissors";
+    if (number===0) return "rock";
+    if (number===1) return "paper";
+    if (number===2) return "scissors";
 }
+
+let result = getComputerChoice(number)
+console.log(result);
 
 /**
  * Declare a function that outputs random number.
