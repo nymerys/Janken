@@ -1,2 +1,3 @@
 # Janken
 Odin Rock Paper Scissors Game
+This is a first attempt at the rock-paper-scissors game assignment from the Odin Project Foundations course, Javascript unit. This project aims to employ very fundamental basic Javascript code in order to create a game that will be solely conducted within the browser console. I will to the best of knowledge employ the use of Javascript functions and develop my problem-solving skills through trial and error as my code runs.
