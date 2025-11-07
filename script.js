@@ -10,9 +10,6 @@ function getComputerChoice(x) {
     if (x === 2) return "scissors";
 }
 
-let computerResult = getComputerChoice(throwNumber);
-console.log(computerResult);
-
 /**
  * Declare a function that outputs random number.
  * Call this function and set maximum to 2.
@@ -20,9 +17,9 @@ console.log(computerResult);
 */
 
 function getHumanChoice() {
-    let playerResult = prompt("What would you like to throw? Rock, paper, scissors!");
-    console.log(playerResult.toLowerCase());
-    return playerResult;
+    let playerThrow = prompt("What would you like to throw? Rock, paper, scissors!");
+    console.log(playerThrow.toLowerCase());
+    return playerThrow;
 }
 
 /**
@@ -32,10 +29,8 @@ function getHumanChoice() {
  */
 
 let humanScore = 0;
-const humanScoreCount = humanScore++;
 
 let computerScore = 0;
-const computerScoreCount = computerScore++;
 
 // Assign a variable to log the player's score.
 // Assign a variable to log the computer's score.
@@ -55,25 +50,30 @@ function playRound(humanChoice, computerChoice) {
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice(throwNumber);
+console.log(computerSelection);
 
 let roundResult = playRound(humanSelection, computerSelection);
 console.log(roundResult);
 
 function humanWin(roundResult) {
-    if (roundResult.includes("You win!")) return humanScore;
-    else return computerScoreCount;
+    if (roundResult.includes("You win!")) {
+        return ++humanScore;
+    }
+    else return humanScore;
 }
 
 function computerWin(roundResult) {
-    if (roundResult.includes("You lose!")) return computerScore;
-    else return humanScoreCount;
+    if (roundResult.includes("You lose!")) {
+        computerScore++;
+        return computerScore;
+    } else return computerScore;
 }
 
-let humanPoints = humanWin(roundResult);
-console.log(humanPoints);
+humanScore = humanWin(roundResult);
+console.log(humanScore);
 
-let computerPoints = computerWin(roundResult);
-console.log(computerPoints);
+computerScore = computerWin(roundResult);
+console.log(computerScore);
 
 // Create a new function named playRound.
 // Define two parameters for playRound: humanChoice and computerChoice.
@@ -84,6 +84,7 @@ console.log(computerPoints);
 
 function playGame(){
     
+    
 }
 
 // Create a new function named playGame.
@@ -91,3 +92,18 @@ function playGame(){
 // Play 5 rounds by calling playRound 5 times.
 // Hint: When you assign a function call to a variable, the return value of that function is assigned to the variable. Accessing the variable afterward will only provide the assigned value; it doesn’t recall the function. You need to recall the choice functions to get new choices for each round.
 // Re-work your previous functions or create more helper functions if necessary. Specifically, you may want to change the return values to something more useful.
+
+// playGame function needs to call these 5 times:
+// throwNumber needs to generate a new random number each round to pass to getComputerChoice to assign a string to the thrown number
+// getHumanChoice needs to prompt the player each time
+// roundResult will determine the winner per round
+// humanWin and computerWin need to increment the scores based on the winner per round
+
+// let x = 0;
+
+// function Justine(){
+//     return x++;
+// }
+
+// Justine();
+// console.log(x);
