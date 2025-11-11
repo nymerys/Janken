@@ -2,8 +2,6 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-let throwNumber = getRandomInt(3);
-
 function getComputerChoice(x) {
     if (x === 0) return "rock";
     if (x === 1) return "paper";
@@ -48,13 +46,6 @@ function playRound(humanChoice, computerChoice) {
     if (humanChoice === "scissors" && computerChoice === "scissors") return "It's a tie!";
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice(throwNumber);
-console.log(computerSelection);
-
-let roundResult = playRound(humanSelection, computerSelection);
-console.log(roundResult);
-
 function humanWin(roundResult) {
     if (roundResult.includes("You win!")) {
         return ++humanScore;
@@ -69,12 +60,6 @@ function computerWin(roundResult) {
     } else return computerScore;
 }
 
-humanScore = humanWin(roundResult);
-console.log(humanScore);
-
-computerScore = computerWin(roundResult);
-console.log(computerScore);
-
 // Create a new function named playRound.
 // Define two parameters for playRound: humanChoice and computerChoice.
 // Use these two parameters to take the human and computer choices as arguments.
@@ -82,10 +67,32 @@ console.log(computerScore);
 // playRound function to console.log a string value to indicate round winner.
 // Increment the humanScore or computerScore variable based on the round winner.
 
-function playGame(){
-    
-    
+function playGame() {
+
+    function roundCalls() {
+        let throwNumber = getRandomInt(3);
+
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice(throwNumber);
+        console.log(computerSelection);
+        let roundResult = playRound(humanSelection, computerSelection);
+        console.log(roundResult);
+
+        humanScore = humanWin(roundResult);
+        console.log(humanScore);
+
+        computerScore = computerWin(roundResult);
+        console.log(computerScore);
+    }
+
+    roundCalls();
+    roundCalls();
+    roundCalls();
+    roundCalls();
+    roundCalls();
 }
+
+playGame();
 
 // Create a new function named playGame.
 // Move your playRound function and score variables so that they’re declared inside of the new playGame function
@@ -98,12 +105,3 @@ function playGame(){
 // getHumanChoice needs to prompt the player each time
 // roundResult will determine the winner per round
 // humanWin and computerWin need to increment the scores based on the winner per round
-
-// let x = 0;
-
-// function Justine(){
-//     return x++;
-// }
-
-// Justine();
-// console.log(x);
